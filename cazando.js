@@ -50,5 +50,15 @@ function iniciarJuego() {
     graficarComida();
 }
 
+ function limpiarCanva() {
+    contexto.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function moverIzquierda() {
+    gatoX = gatoX - 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
 
 
