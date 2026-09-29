@@ -5,6 +5,7 @@ let gatoX = 0;
 let gatoY = 0;
 let comidaX = 0;
 let comidaY = 0;
+let puntaje = 0;
 
 const altoGato = 100;
 const anchoGato = 100;
@@ -59,9 +60,13 @@ function detectarColision() {
              gatoX + anchoGato > comidaX &&
              gatoY < comidaY + altoComida &&
              gatoY + altoGato > comidaY) {
-        alert("¡El gato atrapó la comida!");
-             }
-             detectarColision();
+            puntaje = puntaje + 1;
+
+        // Llama a la función de utilitarios.js para actualizar la pantalla
+        mostrarEnSpan("puntos", puntaje);
+
+        reposicionarComida();
+    }
 }
 
 function moverIzquierda() {
@@ -84,6 +89,14 @@ function moverAbajo() {
     actualizarJuego();
 }
 
+function reposicionarComida() {
+    let maxX = canvas.width - anchoComida;
+    let maxY = canvas.height - altoComida;
+
+    // Llama a la función de utilitarios.js
+    comidaX = generarAleatorio(0, maxX);
+    comidaY = generarAleatorio(0, maxY);
+}
 
  function actualizarJuego() {
     limpiarCanva();
@@ -91,4 +104,3 @@ function moverAbajo() {
     graficarComida();
     detectarColision();
 }
-
