@@ -54,33 +54,41 @@ function iniciarJuego() {
     contexto.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function detectarColision() {
+     if (gatoX < comidaX + anchoComida &&
+             gatoX + anchoGato > comidaX &&
+             gatoY < comidaY + altoComida &&
+             gatoY + altoGato > comidaY) {
+        alert("¡El gato atrapó la comida!");
+             }
+             detectarColision();
+}
+
 function moverIzquierda() {
     gatoX = gatoX - 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
-} 
+    actualizarJuego();
+}
 
 function moverDerecha() {
     gatoX = gatoX + 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
+    actualizarJuego();
 }
 
 function moverArriba() {
     gatoY = gatoY - 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
+    actualizarJuego();
 }
 
 function moverAbajo() {
     gatoY = gatoY + 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
+    actualizarJuego();
 }
 
 
+ function actualizarJuego() {
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    detectarColision();
+}
 
