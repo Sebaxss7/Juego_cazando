@@ -8,10 +8,14 @@ let comidaY = 0;
 let puntaje = 0;
 let temporizador;
 let tiempo = 10;
-const altoGato = 100;
+const altoGato = 150;
 const anchoGato = 100;
-const altoComida = 50;
-const anchoComida = 50;
+const altoComida = 75;
+const anchoComida = 70;
+const imagenLeon = new Image();
+imagenLeon.src = "leon.png";
+const imagenComida = new Image();
+imagenComida.src = "comida.png";
 
 function graficarRectangulo(x, y, ancho, alto, color) {
     contexto.fillStyle = color;
@@ -19,22 +23,22 @@ function graficarRectangulo(x, y, ancho, alto, color) {
 }
 
 function graficarGato() {
-    graficarRectangulo(
+    contexto.drawImage(
+        imagenLeon,
         gatoX,
         gatoY,
         anchoGato,
-        altoGato,
-        "gray"
+        altoGato
     );
 }
 
 function graficarComida() {
-    graficarRectangulo(
+    contexto.drawImage(
+        imagenComida,
         comidaX,
         comidaY,
         anchoComida,
-        altoComida,
-        "red"
+        altoComida
     );
 }
 

@@ -1,42 +1,583 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  margin: 0;
-  padding: 20px;
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+/* ============================= */
+/* CUERPO DE LA PÁGINA */
+/* ============================= */
+
+body {
+
+    min-height: 100vh;
+
+    padding: 25px 15px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    text-align: center;
+
+    color: #3d250d;
+
+    overflow-x: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 8%,
+            #ffe57b 0px,
+            #ffe57b 48px,
+            transparent 50px
+        ),
+
+        linear-gradient(
+            to bottom,
+            #7ec9df 0%,
+            #c9e6bb 40%,
+            #d9b866 42%,
+            #b57a32 100%
+        );
+
+}
+
+
+/* ============================= */
+/* DECORACIÓN LATERAL */
+/* ============================= */
+
+.decoracion {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    font-size: 95px;
+
+    opacity: 0.75;
+
+    z-index: -1;
+
+    filter:
+        drop-shadow(
+            4px 6px 3px rgba(0, 0, 0, 0.2)
+        );
+
+}
+
+
+.sabana-izquierda {
+
+    left: 15px;
+
+}
+
+
+.sabana-derecha {
+
+    right: 15px;
+
+    transform: scaleX(-1);
+
+}
+
+
+/* ============================= */
+/* CONTENEDOR PRINCIPAL */
+/* ============================= */
+
+.contenedor-juego {
+
+    width: min(720px, 96vw);
+
+    margin: auto;
+
+    padding: 25px;
+
+    border: 5px solid #684018;
+
+    border-radius: 28px;
+
+    background: rgba(255, 239, 188, 0.96);
+
+    box-shadow:
+
+        0 15px 35px rgba(58, 32, 9, 0.35),
+
+        inset 0 0 0 3px #d49b45;
+
+}
+
+
+/* ============================= */
+/* ENCABEZADO */
+/* ============================= */
+
+.encabezado {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+}
+
+
+.titulo {
+
+    flex: 1;
+
+}
+
+
+.titulo > span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #86601e;
+
+}
+
 
 h1 {
-  margin-bottom: 5px;
+
+    margin: 0;
+
+    font-size: clamp(30px, 6vw, 50px);
+
+    color: #5a310c;
+
+    text-shadow:
+
+        2px 3px 0 #e4a94f;
+
 }
 
-.panel {
-  margin: 15px 0;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+
+.titulo p {
+
+    margin-top: 8px;
+
+    font-size: 14px;
+
+    color: #704a1e;
+
 }
+
+
+.titulo .autor {
+
+    margin-top: 4px;
+
+}
+
+
+.huella {
+
+    font-size: 40px;
+
+}
+
+
+.huella:last-child {
+
+    transform: scaleX(-1);
+
+}
+
+
+/* ============================= */
+/* MARCADOR */
+/* ============================= */
+
+.marcador {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 20px auto 18px;
+
+}
+
+
+.tarjeta-dato {
+
+    min-width: 155px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 11px 20px;
+
+    border: 3px solid #8a5a20;
+
+    border-radius: 15px;
+
+    background: #fff7dc;
+
+    box-shadow:
+
+        0 5px 0 #b4772c;
+
+}
+
+
+.icono {
+
+    font-size: 27px;
+
+}
+
+
+.tarjeta-dato span {
+
+    display: block;
+
+}
+
+
+.tarjeta-dato > div:last-child > span {
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #8a5a20;
+
+}
+
+
+.tarjeta-dato strong {
+
+    display: block;
+
+    font-size: 24px;
+
+    color: #4b2b0e;
+
+}
+
+
+/* ============================= */
+/* ZONA DEL JUEGO */
+/* ============================= */
+
+.zona-juego {
+
+    display: inline-block;
+
+    padding: 13px;
+
+    border-radius: 22px;
+
+    background: #6f461d;
+
+    box-shadow:
+
+        0 8px 0 #472c12,
+
+        0 14px 22px rgba(53, 30, 8, 0.3);
+
+}
+
+
+.letrero {
+
+    margin-bottom: 10px;
+
+    color: #fff2bd;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ============================= */
+/* CANVAS */
+/* ============================= */
+
+.marco-canvas {
+
+    padding: 5px;
+
+    border-radius: 12px;
+
+    background: #a96e25;
+
+}
+
 
 canvas {
-  background: white;
-  border: 2px solid black;
+
+    display: block;
+
+    width: min(500px, 80vw);
+
+    height: min(500px, 80vw);
+
+    max-width: 500px;
+
+    max-height: 500px;
+
+    border-radius: 8px;
+
+    background: #d9b75e;
+
 }
 
-.controles {
-  margin-top: 20px;
+
+/* ============================= */
+/* MENSAJE */
+/* ============================= */
+
+.zona-mensaje {
+
+    min-height: 30px;
+
+    margin-top: 15px;
+
 }
 
-button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
-  cursor: pointer;
-}
 
 #mensaje {
-  font-size: 20px;
-  font-weight: bold;
-  color: darkred;
-  margin-top: 15px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #71320c;
+
 }
+
+
+/* ============================= */
+/* CONTROLES */
+/* ============================= */
+
+.controles {
+
+    margin-top: 15px;
+
+}
+
+
+.instruccion {
+
+    margin-bottom: 12px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color: #694719;
+
+}
+
+
+/* ============================= */
+/* CRUCETA */
+/* ============================= */
+
+.cruceta {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.fila-controles {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+/* ============================= */
+/* BOTONES */
+/* ============================= */
+
+button {
+
+    width: 58px;
+
+    height: 48px;
+
+    border: 3px solid #633b14;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            #dca44b,
+            #a96924
+        );
+
+    color: #fff8df;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 5px 0 #633b14;
+
+    transition:
+
+        transform 0.12s,
+
+        box-shadow 0.12s,
+
+        filter 0.12s;
+
+}
+
+
+button:hover {
+
+    filter: brightness(1.12);
+
+    transform: translateY(-2px);
+
+}
+
+
+button:active {
+
+    transform: translateY(4px);
+
+    box-shadow: 0 1px 0 #633b14;
+
+}
+
+
+/* ============================= */
+/* BOTÓN REINICIAR */
+/* ============================= */
+
+.boton-reiniciar {
+
+    width: auto;
+
+    height: auto;
+
+    margin-top: 18px;
+
+    padding: 12px 25px;
+
+    font-size: 15px;
+
+    letter-spacing: 0.5px;
+
+    background:
+        linear-gradient(
+            #8f5a20,
+            #57340f
+        );
+
+}
+
+
+/* ============================= */
+/* PIE DE PÁGINA */
+/* ============================= */
+
+footer {
+
+    margin-top: 18px;
+
+    font-weight: bold;
+
+    color: #fff1c0;
+
+    text-shadow:
+
+        1px 2px 2px #57340f;
+
+}
+
+
+/* ============================= */
+/* CELULARES */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 12px 8px;
+
+    }
+
+
+    .contenedor-juego {
+
+        padding: 17px 10px 20px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .huella,
+    .decoracion {
+
+        display: none;
+
+    }
+
+
+    .marcador {
+
+        gap: 7px;
+
+    }
+
+
+    .tarjeta-dato {
+
+        min-width: 125px;
+
+        padding: 8px 10px;
+
+    }
+
+}
+```

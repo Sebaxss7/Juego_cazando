@@ -1,34 +1,158 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Juego Cazando</title>
-  <link rel="stylesheet" href="cazando.css"/>
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juego Cazando - La Sabana</title>
+
+    <link rel="stylesheet" href="cazando.css">
 </head>
+
 <body onload="iniciarJuego()">
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Sebas </p>
-<canvas id="areaJuego" width="500" height="500"></canvas>
+    <!-- Decoración de la página -->
+    <div class="decoracion sabana-izquierda">🌴</div>
+    <div class="decoracion sabana-derecha">🌴</div>
 
-  <div class="controles">
-    <button onclick="moverArriba()">⬆</button>
-    <br>
-    <button onclick="moverIzquierda()">⬅</button>
-    <button onclick="moverAbajo()">⬇</button>
-    <button onclick="moverDerecha()">➡</button>
-    <br>
-    <button onclick="reiniciar()">Reiniciar</button>
-  </div>
+    <main class="contenedor-juego">
+
+        <!-- ENCABEZADO -->
+        <header class="encabezado">
+
+            <div class="huella">🐾</div>
+
+            <div class="titulo">
+                <span>AVENTURA EN LA SABANA</span>
+
+                <h1>🦁 JUEGO CAZANDO</h1>
+
+                <p>
+                    Atrapa la comida y consigue la mayor cantidad de puntos
+                </p>
+
+                <p class="autor">
+                    Autor: <strong>Sebas</strong>
+                </p>
+            </div>
+
+            <div class="huella">🐾</div>
+
+        </header>
 
 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
+        <!-- MARCADOR -->
+        <section class="marcador">
 
-  <p id="mensaje"></p>
-  <script src="cazando.js"></script>
-  <script src="utils.js"></script>
+            <div class="tarjeta-dato">
+
+                <div class="icono">⭐</div>
+
+                <div>
+                    <span>PUNTOS</span>
+                    <strong id="puntos">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="tarjeta-dato">
+
+                <div class="icono">⏱️</div>
+
+                <div>
+                    <span>TIEMPO</span>
+                    <strong>
+                        <span id="tiempo">10</span>s
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ÁREA DEL JUEGO -->
+        <section class="zona-juego">
+
+            <div class="letrero">
+                🌿 ¡ATRAPA LA COMIDA! 🌿
+            </div>
+
+            <div class="marco-canvas">
+
+                <canvas
+                    id="areaJuego"
+                    width="500"
+                    height="500">
+                </canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- MENSAJE -->
+        <div class="zona-mensaje">
+
+            <p id="mensaje"></p>
+
+        </div>
+
+
+        <!-- CONTROLES -->
+        <section class="controles">
+
+            <p class="instruccion">
+                🦁 Mueve al león por la sabana
+            </p>
+
+
+            <div class="cruceta">
+
+                <button onclick="moverArriba()">
+                    ⬆
+                </button>
+
+                <div class="fila-controles">
+
+                    <button onclick="moverIzquierda()">
+                        ⬅
+                    </button>
+
+                    <button onclick="moverAbajo()">
+                        ⬇
+                    </button>
+
+                    <button onclick="moverDerecha()">
+                        ➡
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button class="boton-reiniciar" onclick="reiniciar()">
+                🔄 REINICIAR JUEGO
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        🦁 CAZA • ATRAPA • GANA 🦁
+    </footer>
+
+
+    <!-- TUS ARCHIVOS ORIGINALES -->
+    <script src="cazando.js"></script>
+    <script src="utils.js"></script>
+
 </body>
+
 </html>
